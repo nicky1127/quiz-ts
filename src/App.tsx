@@ -6,7 +6,7 @@ import QuestionCard from "./components/QuestionCard";
 import { Difficulty, QuestionState } from "./API";
 import { is } from "@babel/types";
 
-type AnswerObject = {
+export type AnswerObject = {
   question: string;
   answer: string;
   correct: boolean;
@@ -62,10 +62,10 @@ const App = () => {
   const nextQuestion = () => {
     // Move onto the next question if not the last question
     const nextQuestion = number + 1;
-    if(nextQuestion===TOTAL_QUESTIONS){
-      setGameOver(true)
-    }else{
-      setNumber(nextQuestion)
+    if (nextQuestion === TOTAL_QUESTIONS) {
+      setGameOver(true);
+    } else {
+      setNumber(nextQuestion);
     }
   };
 
@@ -77,7 +77,7 @@ const App = () => {
           Start
         </button>
       ) : null}
-      {!gameOver ? <p className="score">Score:</p> : null}
+      {!gameOver ? <p className="score">Score: {score}</p> : null}
       {loading && <p>Loading Questions ...</p>}
       {!gameOver && !loading && (
         <QuestionCard
